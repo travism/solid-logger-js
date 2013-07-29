@@ -1,0 +1,11 @@
+{
+    "name": "solid-logger",
+    "repo": "opensource/solid-logger",
+    "description": "API to log events locally or to the cloud.",
+    "version": "0.0.1",
+    "keywords": [],
+    "dependencies": {},
+    "development": {},
+    "main": "lib/solid-logger.js",
+    "scripts": [ "lib/solid-logger.js" ]
+}

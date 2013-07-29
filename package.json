@@ -1,0 +1,36 @@
+{
+    "name": "solid-logger",
+    "description": "API log events locally or to the cloud.",
+    "main": "./lib/solid-logger",
+    "author": "Travis McHattie",
+    "version": "0.0.1",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://git.thinksolid.com/opensource/solid-logger.git"
+    },
+    "bugs" : {
+        "url" : "https://git.thinksolid.com/opensource/solid-logger/issues"
+    },
+    "licenses" : [
+        {
+            "type" : "MIT",
+            "url" : "https://git.thinksolid.com/opensource/solid-logger/blob/master/LICENSE"
+        }
+    ],
+    "devDependencies": {
+        "nodeunit": ">0.0.0",
+        "uglify-js": "1.2.x",
+        "nodelint": ">0.0.0"
+    },
+    "jam": {
+        "main": "lib/solid-logger.js",
+        "include": [
+            "lib/solid-logger.js",
+            "README.md",
+            "LICENSE"
+        ]
+    },
+    "scripts": {
+        "test": "nodeunit test/test-solid-logger.js"
+    }
+}
