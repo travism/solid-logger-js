@@ -11,14 +11,11 @@
     /_____/\____/ \____/  \____/  /_____/  /_/ |_|                 \____/  /____/
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 # What am I?
 
 solid-logger-js is a project that will create logs in a consistant way between your projects. There are a ton of options
 when implementing logging in your application. The solid-logger series implements the same tasks across programming
 languages. The idea is that logging in node projects is identical to php, ruby, etc.
-
 
 # Why do you want to use me?
 
