@@ -1,11 +1,23 @@
-var logger = require('../lib/solid-logger');
+var logger = require('../lib/solid-logger'),
+    fileAdapter = require('../lib/adapters/file.js'),
+    testDirectory = __dirname,
+    libDirectory  = testDirectory.substr(0, testDirectory.indexOf('/test'));
 
 logger.init({
     namespace: "test",
     adapters: [{
         type: "file",
-        path: "../log/test.log"
+        path: libDirectory + "../log/test.log"
     }]
 });
 
-console.log(logger.getConfig());
+fileAdapter.init({
+    type: "file",
+    path: libDirectory + "/log/test.log"
+});
+
+fileAdapter.write('test-namespace', 'category', 'type', 'mgs', function(){
+    console.log('finished');
+});
+
+//console.log(logger.getConfig());

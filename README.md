@@ -51,7 +51,7 @@ the logger.
         namespace: 'top level categorization',
         adapters: [{
             type: 'file',
-            path: '/<path to log file'
+            path: '/<path to log file>'
         }]
     });
 
@@ -64,7 +64,7 @@ the logger.
 
 ## File
 
-The file adapter will expect the ```type``` set to "file" and then a path to a log file.
+The file adapter will expect the ```type``` set to ```file``` and then a path to a log file.
 
 NOTE: Files are split daily so the file path is used for the current day but then it is archived by date.
 
