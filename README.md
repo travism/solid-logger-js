@@ -39,9 +39,33 @@ language that uses the same interface and configurations (so that we maintain a 
 * debug
 
 
+
+# Config
+
+The logger needs to be configured before it is used. This is done by calling the ```init``` method after ```requiring````
+the logger.
+
+    var logger = require('solid-logger-js');
+
+    logger.init({
+        namespace: 'top level categorization',
+        adapters: [{
+            type: 'file',
+            path: '/<path to log file'
+        }]
+    });
+
+
+
 # Adapters
 
 * file
 * couchdb
+
+## File
+
+The file adapter will expect the ```type``` set to "file" and then a path to a log file.
+
+NOTE: Files are split daily so the file path is used for the current day but then it is archived by date.
 
 
