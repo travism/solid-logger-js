@@ -16,8 +16,10 @@ fileAdapter.init({
     path: libDirectory + "/log/test.log"
 });
 
-fileAdapter.write('test-namespace', 'category', 'type', 'mgs', function(){
-    console.log('finished');
+fileAdapter.write('test-namespace', 'category', 'type', 'mgs', function(result){
+    console.log('finished result');
+    console.log(result);
+
 });
 
 //console.log(logger.getConfig());
