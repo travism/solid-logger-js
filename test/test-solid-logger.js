@@ -13,14 +13,13 @@ logger.init({
 
 fileAdapter.init({
     type: "file",
-    path: libDirectory + "/log/test.log"
+    path: libDirectory + "/log/test.log",
+    application: 'grasshopper-api',
+    machine: 'dev-server'
 });
 
-fileAdapter.write('test-namespace', 'category', 'type', 'mgs', function(result){
+fileAdapter.write('error', 'login::methodname', 'This is my exception', function(result){
     console.log('finished result');
     console.log(result);
 
 });
-
-
-//console.log(logger.getConfig());
