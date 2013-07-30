@@ -22,4 +22,5 @@ fileAdapter.write('test-namespace', 'category', 'type', 'mgs', function(result){
 
 });
 
+
 //console.log(logger.getConfig());
