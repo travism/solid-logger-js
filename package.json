@@ -21,7 +21,8 @@
         "q" : "~0.9.6",
         "nodeunit": ">0.0.0",
         "uglify-js": "1.2.x",
-        "nodelint": ">0.0.0"
+        "nodelint": ">0.0.0",
+        "underscore" : "~1.5.1"
     },
     "jam": {
         "main": "lib/solid-logger.js",
