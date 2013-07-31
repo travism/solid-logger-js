@@ -3,7 +3,7 @@
     "description": "solid-logger-js is a project that will create logs in a consistant way between your projects. There are a ton of options when implementing logging in your application. The solid-logger series implements the same tasks across programming languages. The idea is that logging in node projects is identical to php, ruby, etc.",
     "main": "./lib/solid-logger",
     "author": "Travis McHattie",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "repository" : {
         "type" : "git",
         "url" : "https://github.com/travism/solid-logger-js.git"
