@@ -48,16 +48,18 @@ the logger.
     var logger = require('solid-logger-js');
 
     logger.init({
-        type: "file",
-        path: /your/full/path/log/test.log",
-        application: 'grasshopper-api',
-        machine: 'dev-server'
-    },{
-        type: "file",
-        path: /your/full/path/log/backup-test.log",
-        application: 'grasshopper-api',
-        machine: 'dev-server'
-    }]);
+        adapters: [{
+            type: "file",
+            path: path.resolve(__dirname, "../") + "/log/grasshopper-api.log",
+            application: 'grasshopper-api',
+            machine: 'dev-server'
+        },{
+                 type: "file",
+                 path: /your/full/path/log/backup-test.log",
+                 application: 'grasshopper-api',
+                 machine: 'dev-server'
+        }]
+    });
 
 
 # Usage
