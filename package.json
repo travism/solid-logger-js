@@ -17,12 +17,14 @@
             "url" : "https://github.com/travism/solid-logger-js/blob/master/LICENSE"
         }
     ],
-    "devDependencies": {
+    "dependencies": {
         "q" : "~0.9.6",
+        "underscore" : "~1.5.1"
+    },
+    "devDependencies": {
         "nodeunit": ">0.0.0",
         "uglify-js": "1.2.x",
-        "nodelint": ">0.0.0",
-        "underscore" : "~1.5.1"
+        "nodelint": ">0.0.0"
     },
     "jam": {
         "main": "lib/solid-logger.js",
