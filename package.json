@@ -1,20 +1,20 @@
 {
-    "name": "solid-logger",
-    "description": "API log events locally or to the cloud.",
+    "name": "solid-logger-js",
+    "description": "solid-logger-js is a project that will create logs in a consistant way between your projects. There are a ton of options when implementing logging in your application. The solid-logger series implements the same tasks across programming languages. The idea is that logging in node projects is identical to php, ruby, etc.",
     "main": "./lib/solid-logger",
     "author": "Travis McHattie",
-    "version": "0.0.1",
+    "version": "0.3.1",
     "repository" : {
         "type" : "git",
-        "url" : "https://git.thinksolid.com/opensource/solid-logger.git"
+        "url" : "https://github.com/travism/solid-logger-js.git"
     },
     "bugs" : {
-        "url" : "https://git.thinksolid.com/opensource/solid-logger/issues"
+        "url" : "https://github.com/travism/solid-logger-js/issues"
     },
     "licenses" : [
         {
             "type" : "MIT",
-            "url" : "https://git.thinksolid.com/opensource/solid-logger/blob/master/LICENSE"
+            "url" : "https://github.com/travism/solid-logger-js/blob/master/LICENSE"
         }
     ],
     "devDependencies": {
