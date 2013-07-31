@@ -48,19 +48,31 @@ the logger.
     var logger = require('solid-logger-js');
 
     logger.init({
-        namespace: 'top level categorization',
-        adapters: [{
-            type: 'file',
-            path: '/<path to log file>'
-        }]
-    });
+        type: "file",
+        path: /your/full/path/log/test.log",
+        application: 'grasshopper-api',
+        machine: 'dev-server'
+    },{
+        type: "file",
+        path: /your/full/path/log/backup-test.log",
+        application: 'grasshopper-api',
+        machine: 'dev-server'
+    }]);
 
+
+# Usage
+
+After you configure your logger, then you can easily call it like:
+
+    logger.debug('Useful Label', 'This is my debugging message.');
+
+It will automatcially write to all of your defined adapters.
 
 
 # Adapters
 
 * file
-* couchdb
+* couchdb - coming soon
 
 ## File
 
