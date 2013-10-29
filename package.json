@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "underscore": "~1.5.1",
-    "async": "~0.2.9"
+    "q": "~0.9.7"
   },
   "devDependencies": {
     "uglify-js": "1.2.x",
