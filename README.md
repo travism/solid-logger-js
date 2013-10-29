@@ -64,7 +64,7 @@ the logger.
 
 There are a couple of other ways you can configure the module.
 
-* Inline
+## Inline
 
     var logger = require('solid-logger-js').init({
         adapters: [{
@@ -75,7 +75,7 @@ There are a couple of other ways you can configure the module.
         }]
     });
 
-* With a configuration file
+## With a configuration file
 
     var logger = require('solid-logger-js').initWithFile("{path to your file}");
 
