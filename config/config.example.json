@@ -1,0 +1,13 @@
+{
+    "adapters": [{
+        "type": "file",
+        "path": "../log/test.log",
+        "application": "grasshopper-api",
+        "machine": "dev-server"
+    },{
+        "type": "file",
+        "path": "../log/backup-test.log",
+        "application": "grasshopper-api",
+        "machine": "dev-server"
+    }]
+}

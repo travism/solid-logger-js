@@ -1,40 +1,41 @@
 {
-    "name": "solid-logger-js",
-    "description": "solid-logger-js is a project that will create logs in a consistant way between your projects. There are a ton of options when implementing logging in your application. The solid-logger series implements the same tasks across programming languages. The idea is that logging in node projects is identical to php, ruby, etc.",
-    "main": "./lib/solid-logger",
-    "author": "Travis McHattie",
-    "version": "0.3.2",
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/travism/solid-logger-js.git"
-    },
-    "bugs" : {
-        "url" : "https://github.com/travism/solid-logger-js/issues"
-    },
-    "licenses" : [
-        {
-            "type" : "MIT",
-            "url" : "https://github.com/travism/solid-logger-js/blob/master/LICENSE"
-        }
-    ],
-    "dependencies": {
-        "q" : "~0.9.6",
-        "underscore" : "~1.5.1"
-    },
-    "devDependencies": {
-        "nodeunit": ">0.0.0",
-        "uglify-js": "1.2.x",
-        "nodelint": ">0.0.0"
-    },
-    "jam": {
-        "main": "lib/solid-logger.js",
-        "include": [
-            "lib/solid-logger.js",
-            "README.md",
-            "LICENSE"
-        ]
-    },
-    "scripts": {
-        "test": "nodeunit test/test-solid-logger.js"
+  "name": "solid-logger-js",
+  "description": "solid-logger-js is a project that will create logs in a consistant way between your projects. There are a ton of options when implementing logging in your application. The solid-logger series implements the same tasks across programming languages. The idea is that logging in node projects is identical to php, ruby, etc.",
+  "main": "./lib/solid-logger",
+  "author": "Travis McHattie",
+  "version": "0.3.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/travism/solid-logger-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/travism/solid-logger-js/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/travism/solid-logger-js/blob/master/LICENSE"
     }
+  ],
+  "dependencies": {
+    "underscore": "~1.5.1",
+    "q": "~0.9.7"
+  },
+  "devDependencies": {
+    "uglify-js": "1.2.x",
+    "nodelint": ">0.0.0",
+    "mocha": "~1.13.0",
+    "chai": "~1.8.1"
+  },
+  "jam": {
+    "main": "lib/solid-logger.js",
+    "include": [
+      "lib/solid-logger.js",
+      "README.md",
+      "LICENSE"
+    ]
+  },
+  "scripts": {
+    "test": "nodeunit test/test-solid-logger.js"
+  }
 }
