@@ -62,6 +62,24 @@ the logger.
     });
 
 
+There are a couple of other ways you can configure the module.
+
+* Inline
+
+    var logger = require('solid-logger-js').init({
+        adapters: [{
+            type: "file",
+            path: path.resolve(__dirname, "../") + "/log/grasshopper-api.log",
+            application: 'grasshopper-api',
+            machine: 'dev-server'
+        }]
+    });
+
+* With a configuration file
+
+    var logger = require('solid-logger-js').initWithFile("{path to your file}");
+
+
 # Usage
 
 After you configure your logger, then you can easily call it like:
@@ -74,6 +92,7 @@ It will automatcially write to all of your defined adapters.
 # Adapters
 
 * file
+* mongodb - coming soon
 * couchdb - coming soon
 
 ## File
