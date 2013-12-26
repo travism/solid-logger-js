@@ -2,7 +2,7 @@
     "name": "solid-logger",
     "repo": "opensource/solid-logger",
     "description": "API to log events locally or to the cloud.",
-    "version": "0.3.4",
+    "version": "0.3.5",
     "keywords": ["Logging"],
     "dependencies": {},
     "development": {},
