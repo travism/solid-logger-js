@@ -92,13 +92,39 @@ It will automatcially write to all of your defined adapters.
 # Adapters
 
 * file
+* console
 * mongodb - coming soon
 * couchdb - coming soon
+
+------------------------------------------------------------------------------------------------------------------------
 
 ## File
 
 The file adapter will expect the ```type``` set to ```file``` and then a path to a log file.
 
+```
+{
+    type: "file",
+    path: path.resolve("./log/test.log"),
+    application: 'grasshopper-api',
+    machine: 'dev-server'
+}
+```
+
 NOTE: Files are split daily so the file path is used for the current day but then it is archived by date.
+
+------------------------------------------------------------------------------------------------------------------------
+
+## Console
+
+The console adapter will expect the ```type``` set to ```console```.
+
+```
+{
+    type: "console",
+    application: 'grasshopper-api',
+    machine: 'dev-server'
+}
+```
 
 
