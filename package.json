@@ -3,7 +3,7 @@
   "description": "solid-logger-js is a project that will create logs in a consistant way between your projects. There are a ton of options when implementing logging in your application. The solid-logger series implements the same tasks across programming languages. The idea is that logging in node projects is identical to php, ruby, etc.",
   "main": "./lib/solid-logger",
   "author": "Travis McHattie",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/travism/solid-logger-js.git"
@@ -19,7 +19,9 @@
   ],
   "dependencies": {
     "underscore": "~1.5.1",
-    "q": "~0.9.7"
+    "q": "~0.9.7",
+    "colors": "~0.6.2",
+    "async": "~0.2.9"
   },
   "devDependencies": {
     "uglify-js": "1.2.x",
@@ -36,6 +38,6 @@
     ]
   },
   "scripts": {
-    "test": "nodeunit test/test-solid-logger.js"
+    "test": "mocha --reporter spec"
   }
 }
