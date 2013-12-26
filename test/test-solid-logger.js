@@ -20,13 +20,14 @@ describe('Testing Solid Logger', function(){
             });
 
             logger.should.be.a("object");
+
         });
 
         it('should return a valid logger object when configuring with a file.', function() {
             var logger = require('../lib/solid-logger').initWithFile("./config/config.example.json");
 
             logger.should.be.a("object");
-            logger.debug("FILE_INIT_EXAMPLE", "DOES THIS SHOW UP?");
+
         });
     });
 });
