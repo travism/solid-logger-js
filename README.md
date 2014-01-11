@@ -11,6 +11,8 @@
     /_____/\____/ \____/  \____/  /_____/  /_/ |_|                 \____/  /____/
 
 
+[![Build Status](https://travis-ci.org/travism/solid-logger-js.png?branch=master)](https://travis-ci.org/travism/solid-logger-js)
+
 # What am I?
 
 solid-logger-js is a project that will create logs in a consistant way between your projects. There are a ton of options
