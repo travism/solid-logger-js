@@ -1,0 +1,9 @@
+{
+    "errors": {
+        "missingType": "'type' property not set, to use the file adapter the adapter 'type' should be set to a valid adapter type.",
+        "missingPath": "'path' property not set, A valid file path should be added to the config object",
+        "incorrectAdapterType": "Incorrect adapter type. Not set to type of 'console'.",
+        "missingApplication": "'application' property not set, All log entries shold be mapped to an 'application.' Since multiple apps could potentially log to the same output stream.",
+        "missingMachine": "'machine' property not set, All log entries shold be mapped to a 'machine' that they took place on. Since apps can be distributed and synced to the cloud we need to know which box this log took place on."
+    }
+}
