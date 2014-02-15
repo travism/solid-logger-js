@@ -26,6 +26,7 @@ describe('Testing Solid Logger - CONSOLE', function(){
             logger.warn('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
             logger.info('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
             logger.trace('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
+            logger.trace('DOES THIS SHOW UP WITHOUT BRACKETS?');
         });
     });
 });
