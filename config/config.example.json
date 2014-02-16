@@ -5,8 +5,7 @@
         "application": "grasshopper-api",
         "machine": "dev-server"
     },{
-        "type": "file",
-        "path": "../log/backup-test.log",
+        "type": "console",
         "application": "grasshopper-api",
         "machine": "dev-server"
     }]
