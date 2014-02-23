@@ -27,6 +27,7 @@ describe('Testing Solid Logger - CONSOLE', function(){
             logger.info('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
             logger.trace('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
             logger.trace('DOES THIS SHOW UP WITHOUT BRACKETS?');
+            logger.trace({message: 'This is my error message', code: 400});
         });
     });
 });
