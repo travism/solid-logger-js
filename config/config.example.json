@@ -8,5 +8,15 @@
         "type": "console",
         "application": "grasshopper-api",
         "machine": "dev-server"
+    },{
+        "type": "loggly",
+        "application": "grasshopper-api",
+        "machine": "dev-server",
+        "token": "loggly token",
+        "domain": "website url",
+        "auth": {
+            "username": "",
+            "password": ""
+        }
     }]
 }

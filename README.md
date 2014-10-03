@@ -95,8 +95,7 @@ It will automatcially write to all of your defined adapters.
 
 * file
 * console
-* mongodb - coming soon
-* couchdb - coming soon
+* loggly
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -129,4 +128,22 @@ The console adapter will expect the ```type``` set to ```console```.
 }
 ```
 
+## Loggly
 
+Loggly is a popular cloud-based log management service. http://loggly.com
+
+The loggly adapter will expect the ```type``` set to ```loggly```.
+
+```
+{
+    type: "loggly",
+    application: "grasshopper-api",
+    machine: "dev-server",
+    token: "loggly token",
+    domain: "website url",
+    auth: {
+        username: "",
+        password: ""
+    }
+}
+```
