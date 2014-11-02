@@ -22,7 +22,7 @@ describe('Testing Solid Logger - FILE', function(){
                 logger.should.be.a('object');
             });
 
-            it('should output all of our different colors for the console.', function() {
+            it('should output all of our different colors for the console.', function(done) {
 
                 logger.debug('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
                 logger.error('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
@@ -31,6 +31,7 @@ describe('Testing Solid Logger - FILE', function(){
                 logger.trace('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
                 logger.trace('DOES THIS SHOW UP WITHOUT BRACKETS?');
                 logger.trace({message: 'This is my error message', code: 400});
+                logger.getWriteQueue().then(done.bind(null, undefined));
             });
         });
 });
