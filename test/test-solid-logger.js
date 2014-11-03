@@ -31,11 +31,11 @@ describe('Testing Solid Logger', function(){
 
         });
 
-        it('timer test', function(done) {
+        xit('timer test', function(done) {
             var logger = require('../lib/solid-logger').init({
                 adapters: [{
                     type: 'file',
-                    path: path.join(__dirname, '../', 'log/std.out.log'),
+                    path: path.join(__dirname, '../', 'log/test.out.log'),
                     application: 'grasshopper-api',
                     machine: 'dev-server'
                 }, {
@@ -44,7 +44,7 @@ describe('Testing Solid Logger', function(){
                     machine: 'dev-server'
                 }]
             }),
-                counter = 100,
+                counter = 100 + 1,
                 index = 0;
 
             while (--counter) {
@@ -58,7 +58,6 @@ describe('Testing Solid Logger', function(){
 });
 
 function logSet(logger, index) {
-    console.log('index', index);
     logger.debug('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index );
     logger.error('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
     logger.warn('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
