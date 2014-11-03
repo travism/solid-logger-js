@@ -30,5 +30,40 @@ describe('Testing Solid Logger', function(){
             logger.should.be.a('object');
 
         });
+
+        it('timer test', function(done) {
+            var logger = require('../lib/solid-logger').init({
+                adapters: [{
+                    type: 'file',
+                    path: path.join(__dirname, '../', 'log/std.out.log'),
+                    application: 'grasshopper-api',
+                    machine: 'dev-server'
+                }, {
+                    type: 'console',
+                    application: 'grasshopper-api',
+                    machine: 'dev-server'
+                }]
+            }),
+                counter = 100,
+                index = 0;
+
+            while (--counter) {
+                logSet(logger, ++index);
+            }
+
+            logger.getWhenCurrentWritesDone().then(done.bind(null, undefined));
+        });
+
     });
 });
+
+function logSet(logger, index) {
+    console.log('index', index);
+    logger.debug('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index );
+    logger.error('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
+    logger.warn('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
+    logger.info('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
+    logger.trace('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
+    logger.trace('DOES THIS SHOW UP WITHOUT BRACKETS? ' + index);
+    logger.trace({message: 'This is my error message ' + index, code: 400});
+}
