@@ -35,9 +35,14 @@ describe('Testing Solid Logger', function(){
             var logger = require('../lib/solid-logger').init({
                 adapters: [{
                     type: 'file',
-                    path: path.join(__dirname, '../', 'log/test.out.log'),
-                    application: 'grasshopper-api',
-                    machine: 'dev-server'
+                    path: path.join(__dirname, '../', 'log/test1.out.log'),
+                    application: 'grasshopper-api1',
+                    machine: 'dev-server1'
+                }, {
+                    type: 'file',
+                    path: path.join(__dirname, '../', 'log/test2.out.log'),
+                    application: 'grasshopper-api2',
+                    machine: 'dev-server2'
                 }, {
                     type: 'console',
                     application: 'grasshopper-api',
