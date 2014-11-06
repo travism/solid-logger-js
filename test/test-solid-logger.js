@@ -5,7 +5,8 @@ describe('Testing Solid Logger', function(){
     var path = require('path');
 
     describe('Test Logger using a file adapter and the config object passed in through the init function.', function() {
-        it('should return a valid logger object', function() {
+        this.timeout(100000);
+        xit('should return a valid logger object', function() {
             var logger = require('../lib/solid-logger').init({
                 adapters: [{
                     type: 'file',
@@ -24,14 +25,14 @@ describe('Testing Solid Logger', function(){
 
         });
 
-        it('should return a valid logger object when configuring with a file.', function() {
+        xit('should return a valid logger object when configuring with a file.', function() {
             var logger = require('../lib/solid-logger').initWithFile('./config/config.example.json');
 
             logger.should.be.a('object');
 
         });
 
-        xit('timer test', function(done) {
+        it('timer test', function(done) {
             var logger = require('../lib/solid-logger').init({
                 adapters: [{
                     type: 'file',
@@ -43,20 +44,21 @@ describe('Testing Solid Logger', function(){
                     path: path.join(__dirname, '../', 'log/test2.out.log'),
                     application: 'grasshopper-api2',
                     machine: 'dev-server2'
-                }, {
-                    type: 'console',
-                    application: 'grasshopper-api',
-                    machine: 'dev-server'
                 }]
             }),
-                counter = 100 + 1,
+                counter = 1000 + 1,
                 index = 0;
 
+            var now = new Date().getTime();
             while (--counter) {
                 logSet(logger, ++index);
             }
 
-            logger.getWhenCurrentWritesDone().then(done.bind(null, undefined));
+            logger.getWhenCurrentWritesDone()
+                .then(function() {
+                    console.log('\n\n\>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n', new Date().getTime() - now, '\n\n');
+                })
+                .then(done.bind(null, undefined));
         });
 
     });
