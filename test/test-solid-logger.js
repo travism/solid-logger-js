@@ -6,7 +6,7 @@ describe('Testing Solid Logger', function(){
 
     describe('Test Logger using a file adapter and the config object passed in through the init function.', function() {
         this.timeout(100000);
-        xit('should return a valid logger object', function() {
+        it('should return a valid logger object', function() {
             var logger = require('../lib/solid-logger').init({
                 adapters: [{
                     type: 'file',
@@ -25,14 +25,14 @@ describe('Testing Solid Logger', function(){
 
         });
 
-        xit('should return a valid logger object when configuring with a file.', function() {
+        it('should return a valid logger object when configuring with a file.', function() {
             var logger = require('../lib/solid-logger').initWithFile('./config/config.example.json');
 
             logger.should.be.a('object');
 
         });
 
-        it('timer test', function(done) {
+        xit('timer test', function(done) {
             var logger = require('../lib/solid-logger').init({
                 adapters: [{
                     type: 'file',
