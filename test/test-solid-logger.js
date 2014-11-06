@@ -5,6 +5,7 @@ describe('Testing Solid Logger', function(){
     var path = require('path');
 
     describe('Test Logger using a file adapter and the config object passed in through the init function.', function() {
+        this.timeout(100000);
         it('should return a valid logger object', function() {
             var logger = require('../lib/solid-logger').init({
                 adapters: [{
@@ -30,5 +31,45 @@ describe('Testing Solid Logger', function(){
             logger.should.be.a('object');
 
         });
+
+        xit('timer test', function(done) {
+            var logger = require('../lib/solid-logger').init({
+                adapters: [{
+                    type: 'file',
+                    path: path.join(__dirname, '../', 'log/test1.out.log'),
+                    application: 'grasshopper-api1',
+                    machine: 'dev-server1'
+                }, {
+                    type: 'file',
+                    path: path.join(__dirname, '../', 'log/test2.out.log'),
+                    application: 'grasshopper-api2',
+                    machine: 'dev-server2'
+                }]
+            }),
+                counter = 1000 + 1,
+                index = 0;
+
+            var now = new Date().getTime();
+            while (--counter) {
+                logSet(logger, ++index);
+            }
+
+            logger.getWhenCurrentWritesDone()
+                .then(function() {
+                    console.log('\n\n\>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n', new Date().getTime() - now, '\n\n');
+                })
+                .then(done.bind(null, undefined));
+        });
+
     });
 });
+
+function logSet(logger, index) {
+    logger.debug('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index );
+    logger.error('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
+    logger.warn('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
+    logger.info('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
+    logger.trace('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP? ' + index);
+    logger.trace('DOES THIS SHOW UP WITHOUT BRACKETS? ' + index);
+    logger.trace({message: 'This is my error message ' + index, code: 400});
+}
