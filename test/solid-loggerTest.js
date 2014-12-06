@@ -56,7 +56,7 @@ describe('Testing Solid Logger', function(){
 
             logger.getWhenCurrentWritesDone()
                 .then(function() {
-                    console.log('\n\n\>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n', new Date().getTime() - now, '\n\n');
+                    console.log('\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n', new Date().getTime() - now, '\n\n');
                 })
                 .then(done.bind(null, undefined));
         });
