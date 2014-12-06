@@ -99,9 +99,9 @@ var logger = require('solid-logger-js').init({
 
 ### With a configuration file
 
-    ```javascript
-    var logger = require('solid-logger-js').initWithFile("{path to your file}");
-    ```
+```javascript
+var logger = require('solid-logger-js').initWithFile("{path to your file}");
+```
 
 ## Usage
 
