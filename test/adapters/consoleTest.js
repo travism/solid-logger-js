@@ -1,5 +1,8 @@
 'use strict';
 
+var Logger = require('../../lib/solid-logger'),
+    util = require('./util');
+
 require('chai').should();
 
 describe('Testing Solid Logger - CONSOLE', function(){
@@ -8,7 +11,7 @@ describe('Testing Solid Logger - CONSOLE', function(){
     describe('Test Logger using a console adapter and the config object passed in through the init function.',
         function() {
         it('should return a valid logger object', function() {
-            logger = require('../lib/solid-logger').init({
+            logger = Logger.init({
                 adapters: [{
                     type: 'console',
                     application: 'grasshopper-api',
@@ -21,13 +24,7 @@ describe('Testing Solid Logger - CONSOLE', function(){
 
         it('should output all of our different colors for the console.', function() {
 
-            logger.debug('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
-            logger.error('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
-            logger.warn('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
-            logger.info('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
-            logger.trace('FILE_INIT_EXAMPLE', 'DOES THIS SHOW UP?');
-            logger.trace('DOES THIS SHOW UP WITHOUT BRACKETS?');
-            logger.trace({message: 'This is my error message', code: 400});
+            util.log(logger);
         });
     });
 });

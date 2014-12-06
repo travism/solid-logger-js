@@ -43,6 +43,6 @@
     ]
   },
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --recursive --reporter spec"
   }
 }
