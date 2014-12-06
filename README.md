@@ -29,6 +29,7 @@ languages. The idea is that logging in node projects is identical to php, ruby, 
 * Handles logging objects
 * Handles circular references
 * Handles logging Errors
+* Asynchronous
 * Built in Console adapter with colors
 * Built in File adapter with day based log rotation
 * Built in Loggly adapter
