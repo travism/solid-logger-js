@@ -21,11 +21,6 @@ languages. The idea is that logging in node projects is identical to php, ruby, 
 
 ## Features
 
-* Customizable, just push your custom adapter on:
-
-    ```javascript
-    var Logger =
-    ```
 * Handles logging objects
 * Handles circular references
 * Handles logging Errors
