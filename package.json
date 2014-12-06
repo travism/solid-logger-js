@@ -22,7 +22,6 @@
     "bluebird": "^2.3.10",
     "chalk": "^0.5.1",
     "loggly": "^1.0.5",
-    "q": "~0.9.7",
     "underscore": "~1.5.1"
   },
   "devDependencies": {
