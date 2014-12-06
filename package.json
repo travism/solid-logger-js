@@ -21,8 +21,8 @@
     "async": "~0.2.9",
     "bluebird": "^2.3.10",
     "chalk": "^0.5.1",
-    "loggly": "^1.0.5",
-    "underscore": "~1.5.1"
+    "lodash": "^2.4.1",
+    "loggly": "^1.0.5"
   },
   "devDependencies": {
     "uglify-js": "1.2.x",
