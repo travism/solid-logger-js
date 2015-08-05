@@ -7,7 +7,7 @@
     { "name": "Travis McHattie" },
     { "name": "Peter Ajtai" }
   ],
-  "version": "0.4.2",
+  "version": "0.4.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/travism/solid-logger-js.git"
@@ -22,7 +22,7 @@
     }
   ],
   "dependencies": {
-    "bluebird": "^2.3.10",
+    "bluebird": "^2.9.34",
     "chalk": "^0.5.1",
     "lodash": "^2.4.1",
     "loggly": "^1.0.5"
