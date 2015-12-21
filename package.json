@@ -7,7 +7,7 @@
     { "name": "Travis McHattie" },
     { "name": "Peter Ajtai" }
   ],
-  "version": "0.4.4",
+  "version": "0.5.0-build.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/travism/solid-logger-js.git"

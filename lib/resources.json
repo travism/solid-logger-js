@@ -5,6 +5,7 @@
         "incorrectAdapterType": "Incorrect adapter type. Not set to type of 'console'.",
         "missingApplication": "'application' property not set, All log entries shold be mapped to an 'application.' Since multiple apps could potentially log to the same output stream.",
         "missingMachine": "'machine' property not set, All log entries should be mapped to a 'machine' that they took place on. Since apps can be distributed and synced to the cloud we need to know which box this log took place on.",
-        "missingToken": "'token' property not set. All log enteries should be mapped to an application 'token'."
+        "missingToken": "'token' property not set. All log enteries should be mapped to an application 'token'.",
+        "missingVerb" : "Must include a valid verb for this config."
     }
 }
