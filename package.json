@@ -29,7 +29,8 @@
     "bluebird": "^2.9.34",
     "chalk": "^0.5.1",
     "lodash": "^2.4.1",
-    "loggly": "^1.0.5"
+    "loggly": "^1.0.5",
+    "superagent": "^1.6.1"
   },
   "devDependencies": {
     "chai": "~1.8.1",
