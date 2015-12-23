@@ -4,8 +4,12 @@
   "main": "./lib/solid-logger",
   "author": "Travis McHattie",
   "contributors": [
-    { "name": "Travis McHattie" },
-    { "name": "Peter Ajtai" }
+    {
+      "name": "Travis McHattie"
+    },
+    {
+      "name": "Peter Ajtai"
+    }
   ],
   "version": "0.5.0-build.1",
   "repository": {
@@ -28,12 +32,13 @@
     "loggly": "^1.0.5"
   },
   "devDependencies": {
-    "mocha": "~1.13.0",
     "chai": "~1.8.1",
+    "express": "^4.13.3",
     "grunt": "~0.4.2",
-    "matchdep": "~0.3.0",
+    "grunt-contrib-jshint": "~0.8.0",
     "grunt-shell": "~0.6.1",
-    "grunt-contrib-jshint": "~0.8.0"
+    "matchdep": "~0.3.0",
+    "mocha": "~1.13.0"
   },
   "jam": {
     "main": "lib/solid-logger.js",
