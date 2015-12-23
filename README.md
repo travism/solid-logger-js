@@ -75,7 +75,7 @@ logger.init({
         machine: 'dev-server'
     },{
              type: "file",
-             path: /your/full/path/log/backup-test.log",
+             path: "/your/full/path/log/backup-test.log",
              application: 'grasshopper-api',
              machine: 'dev-server'
     }]
