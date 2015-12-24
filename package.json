@@ -11,7 +11,7 @@
       "name": "Peter Ajtai"
     }
   ],
-  "version": "0.5.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/travism/solid-logger-js.git"

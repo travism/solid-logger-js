@@ -39,6 +39,10 @@ languages. The idea is that logging in node projects is identical to php, ruby, 
     // The adapter should return a Bluebird promise that is resolved when the work is done
     ```
 
+## Dependencies
+
+Node 4+
+
 ## Why do you want to use me?
 
 Logging is crucially important and necessary for all applications. If a standard practice is not adopted then each
