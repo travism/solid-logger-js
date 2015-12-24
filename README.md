@@ -119,8 +119,10 @@ It will automatcially write to all of your defined adapters.
 * file
 * console
 * loggly
+* remote
+* callback
 
-------------------------------------------------------------------------------------------------------------------------
+---
 
 ### File
 
@@ -137,7 +139,7 @@ The file adapter will expect the `type` set to `file` and then a path to a log f
 
 NOTE: Files are split daily so the file path is used for the current day but then it is archived by date.
 
-------------------------------------------------------------------------------------------------------------------------
+---
 
 ### Console
 
@@ -150,6 +152,8 @@ The console adapter will expect the `type` set to `console`.
     machine: 'dev-server'
 }
 ```
+
+---
 
 ### Loggly
 
@@ -169,4 +173,39 @@ The loggly adapter will expect the `type` set to `loggly`.
         password: ""
     }
 }
+```
+
+---
+
+### Remote
+
+Sends parameterized GET requests to a remote endpoint.
+
+```javascript
+logger = Logger.init({
+    adapters: [{
+        type: 'remote',
+        verb: 'GET',
+        url: 'http://localhost:4321/log',
+        application: 'test',
+        machine: 'test-host'
+    }]
+});
+```
+
+---
+
+### Callback
+
+Pass in a callback that gets called with the entry object.
+
+```javascript
+var logger = Logger.init({
+    adapters: [{
+        type: 'callback',
+        application: 'logger1',
+        machine: 'staging',
+        callback: function(entryOjbect) { ... }
+    }]
+});
 ```

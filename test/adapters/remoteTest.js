@@ -2,8 +2,12 @@
 
 var Logger = require('../../lib/solid-logger'),
     BB = require('bluebird'),
-    util = require('./util'),
     express = require('express'),
+    should = require('chai').should(),
+    EventEmitter = require('events').EventEmitter,
+    channel = new EventEmitter(),
+    app,
+    server,
     logger = Logger.init({
         adapters: [{
             type: 'remote',
@@ -12,44 +16,37 @@ var Logger = require('../../lib/solid-logger'),
             application: 'test',
             machine: 'test-host'
         }]
-    }),
-    should = require('chai').should(),
-    app,
-    server,
-    callback = {
-        hit : function() { console.log('hit'); }
-    },
-    listening;
-
-
-
+    });
 
 describe('Testing Solid Logger - REMOTE', function() {
-    before(function() {
+
+    before(function(done) {
         app = express();
-        listening = new BB(function(resolve) {
-            app.get('/log', function(req) {
-                callback.hit(req);
-            });
-            server = app.listen(4321, function() {
-                console.log('server running');
-                resolve();
-            });
+        app.get('/log', function(req) {
+            channel.emit('request', req);
+        });
+        server = app.listen(4321, function() {
+            console.log('server running');
+            done();
         });
     });
+
+    after(function() {
+        server.close();
+    });
+
     it('should return a valid logger object', function() {
         logger.should.be.a('object');
     });
 
     it('should send a get request to the configured url', function(done) {
 
-        listening
-            .then(function() {
-                callback.hit = function() {
-                    done();
-                };
-                logger.debug('critical', 'hi');
-            });
+
+        channel.on('request', function() {
+            channel.removeAllListeners();
+            done();
+        });
+        logger.debug('critical', 'hi');
 
     });
 
@@ -57,9 +54,8 @@ describe('Testing Solid Logger - REMOTE', function() {
 
         it('should send timestamp, application, machine, type, category, and message', function(done) {
 
-            listening
-                .then(function() {
-                    callback.hit = function(req) {
+                    channel.on('request', function(req) {
+                        channel.removeAllListeners();
 
                         should.exist(req.query.timestamp);
 
@@ -68,11 +64,11 @@ describe('Testing Solid Logger - REMOTE', function() {
                         req.query.type.should.equal('DEBUG');
                         req.query.category.should.equal('CRITICAL');
                         req.query.message.should.equal('hi');
+
                         done();
-                    };
+                    });
 
                     logger.debug('critical', 'hi');
-                });
         });
     });
 
@@ -80,10 +76,9 @@ describe('Testing Solid Logger - REMOTE', function() {
 
         it('should send timestamp, application, machine, type, category, and message', function (done) {
 
-            listening
-                .then(function () {
+                    channel.on('request', function (req) {
+                        channel.removeAllListeners();
 
-                    callback.hit = function (req) {
                         should.exist(req.query.timestamp);
                         should.not.exist(req.query.category);
 
@@ -92,10 +87,9 @@ describe('Testing Solid Logger - REMOTE', function() {
                         req.query.type.should.equal('DEBUG');
                         req.query.message.should.equal('hi');
                         done();
-                    };
+                    });
 
                     logger.debug('hi');
-                });
         });
     });
 
