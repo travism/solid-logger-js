@@ -4,10 +4,14 @@
   "main": "./lib/solid-logger",
   "author": "Travis McHattie",
   "contributors": [
-    { "name": "Travis McHattie" },
-    { "name": "Peter Ajtai" }
+    {
+      "name": "Travis McHattie"
+    },
+    {
+      "name": "Peter Ajtai"
+    }
   ],
-  "version": "0.4.4",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/travism/solid-logger-js.git"
@@ -25,15 +29,18 @@
     "bluebird": "^2.9.34",
     "chalk": "^0.5.1",
     "lodash": "^2.4.1",
-    "loggly": "^1.0.5"
+    "loggly": "^1.0.5",
+    "superagent": "^1.6.1"
   },
   "devDependencies": {
-    "mocha": "~1.13.0",
     "chai": "~1.8.1",
+    "express": "^4.13.3",
     "grunt": "~0.4.2",
-    "matchdep": "~0.3.0",
+    "grunt-contrib-jshint": "~0.8.0",
     "grunt-shell": "~0.6.1",
-    "grunt-contrib-jshint": "~0.8.0"
+    "matchdep": "~0.3.0",
+    "mocha": "~1.13.0",
+    "sinon": "^1.17.2"
   },
   "jam": {
     "main": "lib/solid-logger.js",
@@ -44,6 +51,6 @@
     ]
   },
   "scripts": {
-    "test": "mocha --recursive --reporter spec"
+    "test": "mocha test --recursive --reporter spec"
   }
 }
