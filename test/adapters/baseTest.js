@@ -1,6 +1,7 @@
 'use strict';
 
-var logger = require('../../lib/solid-logger').init({
+var Logger = require('../../lib/solid-logger'),
+    logger = Logger.init({
     adapters: [{
         type: 'console',
         application: 'grasshopper-api',
@@ -11,6 +12,100 @@ var logger = require('../../lib/solid-logger').init({
 require('chai').should();
 
 describe('Testing Solid Logger - BASE', function () {
+
+    describe('method calls', function() {
+        it('logger.error', function(done) {
+            Logger.init({
+                adapters: [{
+                    type: 'callback',
+                    application: 'grasshopper-api',
+                    machine: 'dev-server',
+                    callback: function (log) {
+                        log.message.should.equal('some message');
+                        done();
+                    }
+                }]
+            }).error('some message');
+        });
+        it('logger.error', function (done) {
+            Logger.init({
+                adapters: [{
+                    type: 'callback',
+                    application: 'grasshopper-api',
+                    machine: 'dev-server',
+                    callback: function (log) {
+                        log.message.should.equal('some message');
+                        done();
+                    }
+                }]
+            }).error('some message');
+        });
+        it('logger.info', function (done) {
+            Logger.init({
+                adapters: [{
+                    type: 'callback',
+                    application: 'grasshopper-api',
+                    machine: 'dev-server',
+                    callback: function (log) {
+                        log.message.should.equal('some message');
+                        done();
+                    }
+                }]
+            }).info('some message');
+        });
+        it('logger.debug', function (done) {
+            Logger.init({
+                adapters: [{
+                    type: 'callback',
+                    application: 'grasshopper-api',
+                    machine: 'dev-server',
+                    callback: function (log) {
+                        log.message.should.equal('some message');
+                        done();
+                    }
+                }]
+            }).debug('some message');
+        });
+        it('logger.warn', function (done) {
+            Logger.init({
+                adapters: [{
+                    type: 'callback',
+                    application: 'grasshopper-api',
+                    machine: 'dev-server',
+                    callback: function (log) {
+                        log.message.should.equal('some message');
+                        done();
+                    }
+                }]
+            }).warn('some message');
+        });
+        it('logger.trace', function (done) {
+            Logger.init({
+                adapters: [{
+                    type: 'callback',
+                    application: 'grasshopper-api',
+                    machine: 'dev-server',
+                    callback: function (log) {
+                        log.message.should.equal('some message');
+                        done();
+                    }
+                }]
+            }).trace('some message');
+        });
+        it('logger.critical', function (done) {
+            Logger.init({
+                adapters: [{
+                    type: 'callback',
+                    application: 'grasshopper-api',
+                    machine: 'dev-server',
+                    callback: function (log) {
+                        log.message.should.equal('some message');
+                        done();
+                    }
+                }]
+            }).critical('some message');
+        });
+    });
 
     describe('createEntry', function () {
 
