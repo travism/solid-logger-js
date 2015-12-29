@@ -1,7 +1,7 @@
 'use strict';
 
 var Logger = require('../../lib/solid-logger'),
-    BB = require('bluebird'),
+    rawBody = require('raw-body'),
     express = require('express'),
     should = require('chai').should(),
     EventEmitter = require('events').EventEmitter,
@@ -24,6 +24,9 @@ describe('Testing Solid Logger - REMOTE', function() {
         app = express();
         app.get('/log', function(req) {
             channel.emit('request', req);
+        });
+        app.post('/log', function(req) {
+            channel.emit('postRequest', req);
         });
         server = app.listen(4321, function() {
             console.log('server running');
@@ -48,6 +51,37 @@ describe('Testing Solid Logger - REMOTE', function() {
         });
         logger.debug('critical', 'hi');
 
+    });
+
+    describe('headers', function() {
+        it('should set headers if they are set', function(done) {
+            var loggerWKey = Logger.init({
+                adapters: [{
+                    type: 'remote',
+                    verb: 'GET',
+                    url: 'http://localhost:4321/log',
+                    application: 'test',
+                    machine: 'test-host',
+                    headers : {
+                        'x-api-key' : 'bestest',
+                        'something' : 'else'
+                    }
+                }]
+            });
+
+
+            channel.on('request', function (req) {
+                channel.removeAllListeners();
+
+                req.headers['x-api-key'].should.equal('bestest');
+                req.headers.something.should.equal('else');
+
+
+                done();
+            });
+
+            loggerWKey.debug('critical', 'hi');
+        });
     });
 
     describe('if category provided', function() {
@@ -90,6 +124,43 @@ describe('Testing Solid Logger - REMOTE', function() {
                     });
 
                     logger.debug('hi');
+        });
+    });
+
+    describe('POST request logs', function() {
+
+        it('should send POST request with data if configured', function (done) {
+
+            var loggerWKey = Logger.init({
+                adapters: [{
+                    type: 'remote',
+                    verb: 'POST',
+                    url: 'http://localhost:4321/log',
+                    application: 'test',
+                    machine: 'test-host'
+                }]
+            });
+
+
+            channel.on('postRequest', function (req) {
+                channel.removeAllListeners();
+
+                rawBody(req)
+                    .then(function(data) {
+                        data = JSON.parse(data.toString());
+                        should.exist(data.timestamp);
+                        data.application.should.equal('TEST');
+                        data.machine.should.equal('TEST-HOST');
+                        data.type.should.equal('DEBUG');
+                        data.message.should.equal('test');
+                        data.category.should.equal('CRITICAL');
+                        done();
+                    })
+                    .catch(done)
+
+            });
+
+            loggerWKey.debug('critical', 'test');
         });
     });
 

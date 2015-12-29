@@ -57,11 +57,12 @@ language that uses the same interface and configurations (so that we maintain a 
 
 ## Methods
 
-* write
-* error
-* warn
 * trace
 * debug
+* write
+* warn
+* error
+* critical
 
 ## Config
 
@@ -183,19 +184,28 @@ The loggly adapter will expect the `type` set to `loggly`.
 
 ### Remote
 
-Sends parameterized GET requests to a remote endpoint.
+Sends parameterized GET requests to a remote endpoint, or sends POST requests with json data.
+You can optionally configure any desired headers as an object in the config.
 
 ```javascript
 logger = Logger.init({
-    adapters: [{
-        type: 'remote',
-        verb: 'GET',
-        url: 'http://localhost:4321/log',
-        application: 'test',
-        machine: 'test-host'
-    }]
+    adapters: [
+        {
+            type: 'remote',
+            verb: 'GET',
+            url: 'http://localhost:4321/log',
+            application: 'test',
+            machine: 'test-host',
+            headers : {
+                'x-api-key' : 'abcdefg',
+                'something' : 'else'
+            }
+        }
+    ]
 });
 ```
+
+Supported verbs: `GET, POST`
 
 ---
 
