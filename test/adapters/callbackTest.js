@@ -38,14 +38,22 @@ describe('Testing Solid Logger - Callback', function () {
                     callback: callback2
                 }]
             }),
-            doneOne = _.after(4, done);
+            logger3 = Logger.init({
+                adapters: [{
+                    type: 'callback',
+                    application: 'logger3',
+                    machine: 'staging',
+                    callback: callback3
+                }]
+            }),
+            doneOne = _.after(5, done);
 
 
         logger1.debug('test1');
         logger2.debug('test2');
         logger1.debug('test1');
         logger2.debug('test2');
-
+        logger3.debug('MYCAT', 'test3', 'test4');
 
         function callback1(msg) {
             msg.application.should.equal('LOGGER1');
@@ -54,6 +62,12 @@ describe('Testing Solid Logger - Callback', function () {
 
         function callback2(msg) {
             msg.application.should.equal('LOGGER2');
+            doneOne();
+        }
+
+        function callback3(msgs){
+            msgs[0].message.should.equal('test3');
+            msgs[1].message.should.equal('test4');
             doneOne();
         }
     });
