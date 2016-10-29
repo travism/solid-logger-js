@@ -104,6 +104,37 @@ describe('Testing Solid Logger - REMOTE', function() {
 
                     logger.debug('critical', 'hi');
         });
+
+        it('should send multiple messages', function(done) {
+            var cnt = 0;
+
+            channel.on('request', function(req) {
+                //console.log(req.query);
+                should.exist(req.query.timestamp);
+
+                req.query.application.should.equal('TEST');
+                req.query.machine.should.equal('TEST-HOST');
+                req.query.type.should.equal('DEBUG');
+                req.query.category.should.equal('CRITICAL');
+
+                if(cnt === 0){
+                    req.query.message.should.equal('hi');
+                }
+                else {
+                    req.query.message.should.equal('there');
+                }
+
+
+                cnt++;
+
+                if(cnt == 2){
+                    channel.removeAllListeners();
+                    done();
+                }
+            });
+
+            logger.debug('critical', 'hi', 'there');
+        });
     });
 
     describe('if category not provided', function() {
