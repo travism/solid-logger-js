@@ -28,6 +28,7 @@ languages. The idea is that logging in node projects is identical to php, ruby, 
 * Built in Console adapter with colors
 * Built in File adapter with day based log rotation
 * Built in Loggly adapter
+* Save multiple messages like `console.log`
 * Customizable - just push your own adapter on:
 
     ```javascript
