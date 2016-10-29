@@ -114,25 +114,25 @@ describe('Testing Solid Logger - BASE', function () {
             it('should create a correctly formatted entry without category', function() {
                 var message = getMessage(),
                     adapter = logger.adapters[0],
-                    entry = adapter.createEntry('the type', message).call(adapter);
+                    entry = adapter.createEntry('the type',null,[message]).call(adapter);
 
-                removeTimestamp(entry).should.equal('[GRASSHOPPER-API][DEV-SERVER][THE TYPE] ' + getMessage());
+                removeTimestamp(entry[0]).should.equal('[GRASSHOPPER-API][DEV-SERVER][THE TYPE]: ' + getMessage());
             });
 
             it('should create a correctly formatted entry with a category', function() {
                 var message = getMessage(),
                     adapter = logger.adapters[0],
-                    entry = adapter.createEntry('the type', 'the category', message).call(adapter);
+                    entry = adapter.createEntry('the type', 'the category', [message]).call(adapter);
 
-                removeTimestamp(entry).should.equal(
-                    '[GRASSHOPPER-API][DEV-SERVER][THE TYPE][THE CATEGORY] ' + getMessage());
+                removeTimestamp(entry[0]).should.equal(
+                    '[GRASSHOPPER-API][DEV-SERVER][THE TYPE]THE CATEGORY: ' + getMessage());
             });
 
             it('should create a correctly formatted entry with prettified JSON', function() {
                 var adapter = logger.adapters[0],
-                    entry = adapter.createEntry('the type', JSON.stringify({one:'two'},null,4)).call(adapter);
+                    entry = adapter.createEntry('the type',null,[JSON.stringify({one:'two'},null,4)]).call(adapter);
 
-                removeTimestamp(entry).should.equal('[GRASSHOPPER-API][DEV-SERVER][THE TYPE] ' +
+                removeTimestamp(entry[0]).should.equal('[GRASSHOPPER-API][DEV-SERVER][THE TYPE]: ' +
                 '{\n' +
                 '    "one": "two"\n' +
                 '}');
@@ -145,21 +145,21 @@ describe('Testing Solid Logger - BASE', function () {
 
                 it('a nested object', function() {
                     var adapter = logger.adapters[0],
-                        entry = adapter.createEntry('debug', {
+                        entry = adapter.createEntry('debug',null,[{
                             one : 'two',
                             three : {
                                 four : 'five'
                             }
-                        }).call(adapter);
+                        }]).call(adapter);
 
-                    removeTimestamp(entry).should.equal("[GRASSHOPPER-API][DEV-SERVER][DEBUG] { one: 'two', three: { four: 'five' } }"); // jshint ignore:line
+                    removeTimestamp(entry[0]).should.equal("[GRASSHOPPER-API][DEV-SERVER][DEBUG]: { one: 'two', three: { four: 'five' } }"); // jshint ignore:line
                 });
 
                 it('undefined', function() {
                     var adapter = logger.adapters[0],
-                        entry = adapter.createEntry('debug', undefined).call(adapter);
+                        entries = adapter.createEntry('debug',null,[]).call(adapter);
 
-                    removeTimestamp(entry).should.equal('[GRASSHOPPER-API][DEV-SERVER][DEBUG] undefined');
+                    entries.length.should.equal(0);
                 });
 
                 it('a cyclical reference', function() {
@@ -171,9 +171,9 @@ describe('Testing Solid Logger - BASE', function () {
                         entry;
 
                     a.b = b;
-                    entry = adapter.createEntry('debug', a).call(adapter);
+                    entry = adapter.createEntry('debug',null,[ a]).call(adapter);
 
-                    removeTimestamp(entry).should.equal("[GRASSHOPPER-API][DEV-SERVER][DEBUG] { b: { a: [Circular] } }"); // jshint ignore:line
+                    removeTimestamp(entry[0]).should.equal("[GRASSHOPPER-API][DEV-SERVER][DEBUG]: { b: { a: [Circular] } }"); // jshint ignore:line
                 });
             });
         });
@@ -182,9 +182,9 @@ describe('Testing Solid Logger - BASE', function () {
 
             it('should create a correctly formatted entry', function() {
                 var adapter = logger.adapters[0],
-                    entry = adapter.createEntry('debug', new Error('Oopsy doopsy!')).call(adapter);
+                    entry = adapter.createEntry('debug',null, [new Error('Oopsy doopsy!')]).call(adapter);
 
-                removeTimestamp(entry).should.equal('[GRASSHOPPER-API][DEV-SERVER][DEBUG] [Error: Oopsy doopsy!]');
+                removeTimestamp(entry[0]).should.equal('[GRASSHOPPER-API][DEV-SERVER][DEBUG]: [Error: Oopsy doopsy!]');
             });
         });
     });
