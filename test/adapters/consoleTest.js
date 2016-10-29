@@ -8,8 +8,7 @@ require('chai').should();
 describe('Testing Solid Logger - CONSOLE', function(){
     var logger = null;
 
-    describe('Test Logger using a console adapter and the config object passed in through the init function.',
-        function() {
+    describe('Test Logger using a console adapter and the config object passed in through the init function.', function() {
         it('should return a valid logger object', function() {
             logger = Logger.init({
                 adapters: [{
@@ -23,7 +22,6 @@ describe('Testing Solid Logger - CONSOLE', function(){
         });
 
         it('should output all of our different colors for the console.', function() {
-
             util.log(logger);
         });
     });

@@ -88,6 +88,29 @@ logger.init({
 });
 ```
 
+### Filters
+
+Sometimes you don't want to save everything that is logged. Some environments don't need all the data.
+So there is a `filter` configuration that can be used PER ADAPTER. So if you want everything logged to
+the console but only certain things logged to a file or remotely, then no problem. The following Example
+shows everything in the console but filters out `trace, info and debug` entries to the file.
+
+```
+logger = Logger.init({
+    adapters: [{
+            type: 'console',
+            application: 'grasshopper-api',
+            machine: 'dev-server'
+        },{
+            type: 'file',
+            path: path.join(__dirname, '..', '..', 'log', 'std.out.log'),
+            application: 'grasshopper-api',
+            machine: 'dev-server',
+            filter: ['trace','info','debug']
+        }]
+});
+```
+
 There are a couple of other ways you can configure the module.
 
 ### Inline
